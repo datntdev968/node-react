@@ -1,8 +1,10 @@
-const userRouter = require("./user");
+const userRouter = require("./auth");
+const dashboardRouter = require("./dashboard");
 const { errHandler, notFound } = require("../middlewares/errHandler");
 
 const initRoutes = (app) => {
-	app.use("/api/users", userRouter); // Gắn prefix /api/users cho tất cả các route trong userRouter
+	app.use("/api/dashboard", dashboardRouter);
+	app.use("/api/auth", userRouter);
 
 	app.use(notFound);
 	app.use(errHandler);
